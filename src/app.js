@@ -6,7 +6,7 @@ import { connect } from './config/db';
 import { restRouter } from './api';
 import swaggerDocument from './config/swagger.json';
 import { configJWTStrategy } from './api/middlewares/passport-jwt';
-import {functions} from 'firebase-functions';
+//import {functions} from 'firebase-functions';
 import cors from 'cors' ;
 const app = express();
 
@@ -19,16 +19,20 @@ connect();
 
 app.use(express.json());
 
+//MODIFIE PAR YOSSER KE 26-02-2026
 
-app.get('/',(req, res) => {
+//app.get('/',(req, res) => {
   // Setting the response headers
 
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.setHeader("Access-Control-Allow-Headers", "*");
-console.log(res, "lenne ")
-});
+  //res.setHeader("Access-Control-Allow-Origin", "*");
+  //res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+  //res.setHeader("Access-Control-Allow-Headers", "*");
+//console.log(res, "lenne ")
+//});
 
+app.get('/', (req, res) => {
+  res.send('Fatca Backend is running 🚀');
+});
 
 app.use(express.urlencoded({ extended: true }));
 if (process.env.NODE_ENV === 'development') {
